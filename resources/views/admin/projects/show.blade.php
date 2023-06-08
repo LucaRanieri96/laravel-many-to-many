@@ -8,7 +8,7 @@
     @endif
 
     <div class="card overflow-hidden">
-        <div class="card-header bg-primary text-light">
+        <div class="card-header">
             <h2 class="mb-0">{{ $project->slug }}</h2>
         </div>
         <div class="card-body bg-dark text-light">
@@ -26,6 +26,16 @@
                 <span class="badge bg-primary">{{ $project->type?->name }}</span>
             </h4>
             <hr>
+            @if ($project->technologies->count() > 0)
+                <h4>Technologies:</h4>
+                <ul>
+                    @foreach ($project->technologies as $technology)
+                        <li><span class="badge bg-danger">{{ $technology->name }}</span></li>
+                    @endforeach
+                </ul>
+            @else
+                <p>No technologies associated with this project.</p>
+            @endif
             <h4>Project starting date:
                 <br>
                 <span class="fw-normal">{{ $project->startingDate }}</span>
