@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Project extends Model
@@ -26,5 +27,10 @@ class Project extends Model
     public function type(): BelongsTo 
     {
         return $this->BelongsTo(Type::class);
+    }
+
+    public function type(): BelongsToMany 
+    {
+        return $this->BelongsToMany(Technology::class);
     }
 }
