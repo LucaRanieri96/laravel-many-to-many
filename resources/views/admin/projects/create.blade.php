@@ -48,7 +48,7 @@
         
         <label class="form-check-label">
 
-          <input type="checkbox" name="technologies[]" value="technology->id" class="form-check-input" {{ in_array($technology->id, old('technologies', [])) ? 'checked' : '' }}>
+          <input type="checkbox" name="technologies[]" value="{{$technology->id}}" class="form-check-input" {{ in_array($technology->id, old('technologies', [])) ? 'checked' : '' }}>
 
           {{ $technology->name }}
         </label>
@@ -58,7 +58,7 @@
 
     @error('technologies')
     <div class="invalid-feedback">
-      {{message}}
+      ERRORE CON TECHNOLOGIES
     </div>
     @enderror
   </div>

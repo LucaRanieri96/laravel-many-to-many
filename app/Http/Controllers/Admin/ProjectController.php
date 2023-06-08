@@ -48,9 +48,10 @@ class ProjectController extends Controller
     public function store(StoreProjectRequest $request)
     {
 
-        //dd($request->all());
+        // dd($request->all());
 
-        $valData =  $request->validated();
+        $valData = $request->validated();
+
 
         $valData['slug'] = Project::generateSlug($valData['name']);
 
@@ -91,7 +92,7 @@ class ProjectController extends Controller
         $types = Type::orderByDesc('id')->get();
         $technologies = Technology::orderByDesc('id')->get();
 
-        return view("admin.projects.edit", compact("project", 'types'));
+        return view("admin.projects.edit", compact("project", 'types', 'technologies'));
     }
 
     /**
