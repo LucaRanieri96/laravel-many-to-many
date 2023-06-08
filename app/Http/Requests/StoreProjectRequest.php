@@ -28,7 +28,7 @@ class StoreProjectRequest extends FormRequest
             'repoUrl'=>'nullable',
             'startingDate'=>'nullable',
             'type_id'=> ['exists:types, id'],
-            'technology' => ['exists:technologies, id']
+            'technologies' => ['exists:technologies, id']
         ];
     }
 }

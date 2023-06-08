@@ -113,6 +113,10 @@ class ProjectController extends Controller
 
         $project->update($valData);
 
+        if ($request->has('technologies')){
+            $project->technologies()->sync($request->technologies);
+        }
+
         return to_route("admin.projects.index")->with("message", "Project successfully inserted");
     }
 
