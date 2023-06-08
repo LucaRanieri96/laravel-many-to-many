@@ -60,7 +60,11 @@ class ProjectController extends Controller
 
         //dd($valData);
 
-        Project::create($valData);
+        $new_project = Project::create($valData);
+
+        if ($request->has('technologies')){
+            $new_project->technologies()->attach($request->technologies);
+        }
 
         return to_route("admin.projects.index")->with("message", "Project successfully inserted");
     }
@@ -85,6 +89,7 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
         $types = Type::orderByDesc('id')->get();
+        $technologies = Technology::orderByDesc('id')->get();
 
         return view("admin.projects.edit", compact("project", 'types'));
     }

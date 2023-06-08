@@ -39,6 +39,34 @@
 
   </div>
 
+  <div class="form_group mb-3">
+    <p>Technology selection:</p>
+    @foreach ($technologies as $technology)
+      <div class="form-check" @error('technologies') is-invalid @enderror>
+
+        @if($errors->any())
+  
+        <input name="technologies[]" type="checkbox" value="{{ $technology->id }}" class="form-check-input" {{ in_array($technology->id, old('technologies', [])) ? 'checked' : '' }}>
+  
+        @else 
+  
+        <input name="technologies[]" type="checkbox" value="{{ $technology->id }}" class="form-check-input" {{ $project->technologies->contains($technology) ? 'checked' : '' }}>
+        
+        @endif
+
+        <label class="form-check-label">{{ $technology->name }}</label>
+      </div>
+
+
+    @endforeach
+
+    @error('technologies')
+    <div class="invalid-feedback">
+      {{message}}
+    </div>
+    @enderror
+  </div>
+
   <div class="mb-3">
     <label for="type_id" class="form-label">Starting Date</label>
     <input type="date" name="startingDate" id="startingDate" class="form-control @error('startingDate') is-invalid @enderror" value="{{ old('startingDate') }}" placeholder="Project startingDate">

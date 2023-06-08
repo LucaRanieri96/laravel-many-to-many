@@ -40,14 +40,16 @@
 
   </div>
 
-  <div class="form_group">
+  <div class="form_group mb-3">
     <p>Technology selection:</p>
     @foreach ($technologies as $technology)
       <div class="form-check @error('technologies') is-invalid @enderror">
 
-        <input type="checkbox" name="technologies[]" value="technology->id" class="form-check-input" {{ in_array($technology->id, old('technologies', [])) ? 'checked' : '' }}>
+        
+        <label class="form-check-label">
 
-        <label for="form-check-label">
+          <input type="checkbox" name="technologies[]" value="technology->id" class="form-check-input" {{ in_array($technology->id, old('technologies', [])) ? 'checked' : '' }}>
+
           {{ $technology->name }}
         </label>
 
