@@ -16,7 +16,8 @@ class TechnologySeeder extends Seeder
      */
     public function run()
     {
-        $technologies = ['FrontEnd', 'BackEnd', 'FullStack', 'DevOps', 'Mobile', 'Desktop'];
+        $technologies = ['html', 'Css', 'JavaScript', 'Vite/VueJS', 'php', 'Laravel', 'Laravel/Breeze'];
+
 
         foreach ($technologies as $technology) {
             $newTech = new Technology();
