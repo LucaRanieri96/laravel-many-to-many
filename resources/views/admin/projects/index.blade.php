@@ -23,7 +23,7 @@
             </thead>
             <tbody>
                 @forelse($projects as $project)
-                    <tr>
+                    <tr class="align-middle">
                         <td scope="row">{{ $project->id }}</td>
                         <td scope="row">{{ $project->name }}</td>
                         <td scope="row">{{ $project->repoUrl }}</td>

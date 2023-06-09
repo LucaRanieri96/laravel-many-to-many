@@ -76,7 +76,8 @@
     @enderror
 
   </div>
-  
+
+  <a class="btn btn-outline-light" href="{{ route('admin.projects.index') }}" role="button">Back</a>
   <button type="submit" class="btn btn-primary">Edit project</button>
   <button type="reset" class="btn btn-danger">Reset fields</button>
 </form>

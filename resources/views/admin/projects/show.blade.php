@@ -42,4 +42,8 @@
             </h4>
         </div>
     </div>
+
+    <div class="mt-2">
+        <a class="btn btn-outline-light" href="{{ route('admin.projects.index') }}" role="button">Back</a>
+    </div>
 @endsection
