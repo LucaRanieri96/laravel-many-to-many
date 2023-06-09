@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-
+<a class="btn btn-primary mb-3" href="" role="button">New Technology</a>
 
 @if(session("message"))
 <div class="alert alert-success" role="alert">
@@ -9,8 +9,8 @@
 </div>
 @endif
 
-<div class="table bg-black mb-3">
-  <table class="table align-middle text-center mb-0">
+<div class="table-responsive rounded bg-black mb-3">
+  <table class="table table-striped align-middle text-center mb-0">
     <thead>
       <tr class="align-middle">
         <th scope="col">ID</th>
@@ -32,5 +32,8 @@
       @endforelse
     </tbody>
   </table>
+</div>
+<div class="mt-2">
+  <a class="btn btn-outline-light" href="{{ route('admin.projects.index') }}" role="button">Back</a>
 </div>
 @endsection

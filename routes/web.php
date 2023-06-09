@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\Admin\DashboardController;
+use App\Models\Type;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\ProjectController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/admin/types', function () {
+    $types = Type::all();
+    return view('admin.types.index', compact('types'));
+})->name('admin.types.index');
+
 Route::get('/admin/technologies', 'App\Http\Controllers\TechnologyController@index')->name('admin.technologies.index');
+
+
 
 
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {

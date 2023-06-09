@@ -100,6 +100,11 @@
                                 <a class="fw-bold text-decoration-none"
                                     href="{{ route('admin.technologies.index') }}">Technologies</a>
                             </li>
+                            <li
+                                class="p-3 rounded-3 {{ str_starts_with(Route::currentRouteName(), 'admin.types') ? 'bg-primary' : '' }}">
+                                <a class="fw-bold text-decoration-none"
+                                    href="{{ route('admin.types.index') }}">Types</a>
+                            </li>
                         </ul>
                     </div>
                     <!-- /.col-3 -->
