@@ -6,6 +6,7 @@ use App\Models\Type;
 use App\Models\Project;
 use App\Models\Technology;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 
@@ -19,7 +20,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::orderByDesc("id")->get();
+        $projects = Auth::user()->projects()->orderByDesc("id")->paginate(8);
         
         return view("admin.projects.index", compact("projects"));
     }
@@ -59,6 +60,8 @@ class ProjectController extends Controller
 
         $valData["startingDate"] = date("Y-m-d") . " " . date("H:i:s");
 
+        //dd($valData);
+        $valData['user_id'] = Auth::id(1);
         //dd($valData);
 
         $new_project = Project::create($valData);
