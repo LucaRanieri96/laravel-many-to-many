@@ -32,7 +32,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container-fluid px-5">
                 <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
-                  <img src="{{ asset('imgs/tobyfoxsleep.gif') }}" alt="">
+                    <img src="{{ asset('imgs/tobyfoxsleep.gif') }}" alt="">
                 </a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -59,11 +59,11 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('admin.dashboard') }}">{{ __('Dashboard') }}</a>
+                                <a class="dropdown-item"
+                                    href="{{ route('admin.dashboard') }}">{{ __('Dashboard') }}</a>
                                 <a class="dropdown-item" href="{{ url('profile') }}">{{ __('Profile') }}</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();">
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
 
@@ -77,7 +77,7 @@
             </div>
         </nav>
 
-        <main  class="profile">
+        <main class="profile">
             <div class="container-fluid px-5">
                 <h2 class="my-4">
                     Your Profile
@@ -94,6 +94,11 @@
                                 class="p-3 rounded-3 {{ str_starts_with(Route::currentRouteName(), 'admin.projects') ? 'bg-primary' : '' }}">
                                 <a class="fw-bold text-decoration-none"
                                     href="{{ route('admin.projects.index') }}">Projects</a>
+                            </li>
+                            <li
+                                class="p-3 rounded-3 {{ str_starts_with(Route::currentRouteName(), 'admin.technologies') ? 'bg-primary' : '' }}">
+                                <a class="fw-bold text-decoration-none"
+                                    href="{{ route('admin.technologies.index') }}">Technologies</a>
                             </li>
                         </ul>
                     </div>

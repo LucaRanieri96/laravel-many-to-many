@@ -20,6 +20,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/admin/technologies', 'App\Http\Controllers\TechnologyController@index')->name('admin.technologies.index');
+
+
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
     // responds to url /admin
     // Occhio Importa il controller 🧠

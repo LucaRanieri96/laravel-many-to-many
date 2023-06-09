@@ -95,6 +95,10 @@ class ProjectController extends Controller
         $types = Type::orderByDesc('id')->get();
         $technologies = Technology::orderByDesc('id')->get();
 
+        // if(Auth::id() === $project->user_id){
+        // }
+        // abort(403);
+        
         return view("admin.projects.edit", compact("project", 'types', 'technologies'));
     }
 
