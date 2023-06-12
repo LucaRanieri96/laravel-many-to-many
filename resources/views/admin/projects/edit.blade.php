@@ -12,7 +12,7 @@
 
 @endif
 
-<form action="{{ route('admin.projects.update', $project->slug) }}" method="post">
+<form action="{{ route('admin.projects.update', $project->slug) }}" method="post" enctype="multipart/form-data">
 
   @csrf
   @method("PUT")

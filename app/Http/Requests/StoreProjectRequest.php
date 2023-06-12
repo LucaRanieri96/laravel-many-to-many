@@ -27,7 +27,7 @@ class StoreProjectRequest extends FormRequest
             'name'=>'required',
             'repoUrl'=>'nullable',
             'startingDate'=>'nullable',
-            'cover_image'=>'nullable',
+            'cover_image'=>['nullable', 'image'],
             'type_id'=> ['exists:types,id'],
             'technologies' => ['exists:technologies,id']
         ];

@@ -126,6 +126,19 @@ class ProjectController extends Controller
 
         $valData["startingDate"] = date("Y-m-d") . " " . date("H:i:s");
 
+        
+        if ($request->hasFile('cover_image')) {
+            
+            if ($project->cover_image) {
+                
+                Storage::delete($project->cover_image);    
+            }
+            
+            $image_path = Storage::put('uploads', $request->cover_image);
+            $valData['cover_image'] = $image_path;
+            
+        }
+        
         $project->update($valData);
 
         if ($request->has('technologies')){
