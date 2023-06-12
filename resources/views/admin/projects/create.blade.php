@@ -74,7 +74,7 @@
   </div>
 
   <div class="mb-3">
-    <label for="cover_iimage" class="form-label">Image</label>
+    <label for="cover_image" class="form-label">Image</label>
     <input type="file" name="cover_image" id="cover_image" class="form-control @error('cover_image') is-invalid @enderror" placeholder="Project cover_image">
     
     @error('cover_image')

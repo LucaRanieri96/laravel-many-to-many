@@ -77,6 +77,18 @@
 
   </div>
 
+  <div class="mb-3">
+    <img width="100px" class="mb-1" src="{{ asset('storage/' . $project->cover_image)}}" alt="">
+
+    <label for="cover_image" class="form-label">Replace image</label>
+    <input type="file" name="cover_image" id="cover_image" class="form-control @error('cover_image') is-invalid @enderror" placeholder="Project cover_image">
+    
+    @error('cover_image')
+    <small class="text-danger">Please, fill the field correctly</small>
+    @enderror
+
+  </div>
+
   <a class="btn btn-outline-light" href="{{ route('admin.projects.index') }}" role="button">Back</a>
   <button type="submit" class="btn btn-primary">Edit project</button>
   <button type="reset" class="btn btn-danger">Reset fields</button>
