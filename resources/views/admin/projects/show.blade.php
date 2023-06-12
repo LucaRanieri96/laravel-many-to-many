@@ -17,6 +17,13 @@
                 <span class="fw-normal">{{ $project->name }}</span>
             </h4>
             <hr>
+            <h4>Project image:
+                <br>
+                <span>
+                    <img height="100" src="{{ asset('storage/' . $project->cover_image) }}" alt="{{ $project->title }}">
+                </span>
+            </h4>
+            <hr>
             <h4>Repository URL:
                 <br>
                 <span class="fw-normal">{{ $project->repoUrl }}</span>

@@ -118,6 +118,12 @@
             <!-- /.container -->
         </main>
     </div>
+
+    <audio id="background-music" controls class="audio">
+        <source src="{{ asset('music/ZeldaOst.mp3') }}" type="audio/mpeg">
+        Il tuo browser non supporta l'elemento audio.
+    </audio>
+
 </body>
 
 </html>

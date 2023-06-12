@@ -27,6 +27,7 @@ class UpdateProjectRequest extends FormRequest
             'name'=>'required',
             'repoUrl'=>'nullable',
             'startingDate'=>'nullable',
+            'cover_image'=>'nullable',
             'type_id'=> ['exists:types,id'],
             'technologies' => ['exists:technologies,id']
         ];

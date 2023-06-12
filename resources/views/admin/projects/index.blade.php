@@ -14,6 +14,7 @@
             <thead>
                 <tr class="align-middle">
                     <th scope="col">ID</th>
+                    <th scope="col">Image</th>
                     <th scope="col">Name</th>
                     <th scope="col">Repository URL</th>
                     <th scope="col">Starting date</th>
@@ -25,6 +26,9 @@
                 @forelse($projects as $project)
                     <tr class="align-middle">
                         <td scope="row">{{ $project->id }}</td>
+                        <td scope="row">
+                            <img height="100" src="{{ asset('storage/' . $project->cover_image) }}" alt="{{$project->title}}">
+                        </td>
                         <td scope="row">{{ $project->name }}</td>
                         <td scope="row">{{ $project->repoUrl }}</td>
                         <td scope="row">{{ $project->startingDate }}</td>

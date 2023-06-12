@@ -7,6 +7,7 @@ use App\Models\Project;
 use App\Models\Technology;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 
@@ -64,6 +65,11 @@ class ProjectController extends Controller
         //dd($valData);
         $valData['user_id'] = Auth::id(1);
         //dd($valData);
+
+        if ($request->hasFile('cover_image')) {
+            $image_path = Storage::put('uploads', $request->cover_image);
+            $valData['cover_image'] = $image_path;
+        }
 
         $new_project = Project::create($valData);
 

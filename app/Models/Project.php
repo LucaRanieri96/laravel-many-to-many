@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Project extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'slug', 'repoUrl', 'startingDate', 'type_id', 'user_id'];
+    protected $fillable = ['name', 'slug', 'cover_image', 'repoUrl', 'startingDate', 'type_id', 'user_id'];
 
     
     public static function generateSlug($name)

@@ -12,7 +12,7 @@
 
 @endif
 
-<form action="{{ route('admin.projects.store') }}" method="post">
+<form action="{{ route('admin.projects.store') }}" method="post" enctype="multipart/form-data">
   @csrf
 
   <div class="mb-3">
@@ -72,6 +72,17 @@
     @enderror
 
   </div>
+
+  <div class="mb-3">
+    <label for="cover_iimage" class="form-label">Image</label>
+    <input type="file" name="cover_image" id="cover_image" class="form-control @error('cover_image') is-invalid @enderror" placeholder="Project cover_image">
+    
+    @error('cover_image')
+    <small class="text-danger">Please, fill the field correctly</small>
+    @enderror
+
+  </div>
+
   <a class="btn btn-outline-light" href="{{ route('admin.projects.index') }}" role="button">Back</a>
   <button type="submit" class="btn btn-primary">Insert project</button>
   <button type="reset" class="btn btn-danger">Reset fields</button>

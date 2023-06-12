@@ -22,6 +22,7 @@ class ProjectSeeder extends Seeder
       $project->slug = Project::generateSlug($project->name);
       $project->repoUrl = Project::generateRepoUrl($project->slug);
       $project->startingDate = date("Y-m-d") . " " . date("H:i:s");
+      $project->cover_image = $faker->imageUrl(category: 'Posts', format: 'jpg');
       $project->save();
     }
   }
