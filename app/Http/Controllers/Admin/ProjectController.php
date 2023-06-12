@@ -133,7 +133,7 @@ class ProjectController extends Controller
                 
                 Storage::delete($project->cover_image);    
             }
-            
+
             $image_path = Storage::put('uploads', $request->cover_image);
             $valData['cover_image'] = $image_path;
             
@@ -156,6 +156,10 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+        if ($project->cover_image) {
+            Storage::delete($project->cover_image);
+        }
+
         $project->delete();
         return to_route("admin.projects.index")->with("message", "Project deleted");
     }
